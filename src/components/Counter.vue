@@ -1,11 +1,12 @@
 <template lang="pug">
 .max-w-sm.rounded.border-solide.bg-gray-100.shadow-lg.m-auto.flex.relative.items-center
-  span.text-gray-600.px-4 {{title}}
+  input.text-gray-600.mx-4.px-1.w-32(:value="title")
   span.text-lg.font-bold.px-4.absolute.centerize {{count}}
   .ml-auto
-    button.bg-blue-500.rounded.text-white.py-1.px-3.m-1.text-lg(@click="increment") +
-    button.bg-red-500.rounded.text-white.py-1.px-3.m-1.text-lg(@click="decrement") -
-    span.text-gray-500.cursor-pointer.px-4 x
+    button.bg-red-500.rounded-l.text-white.py-1.px-3.my-1.text-lg(@click="increment") +
+    button.bg-blue-500.text-white.py-1.px-3.my-1.text-lg(@click="decrement") -
+    button.bg-yellow-500.rounded-r.text-white.py-1.px-3.my-1.text-lg(@click="reset") 0
+    span.text-gray-500.cursor-pointer.px-4(@click="onClose") x
 </template>
 
 <script lang="ts">
@@ -25,8 +26,11 @@ export default defineComponent({
     const decrement = () => {
       if (count.value >= 1) count.value--
     }
+    const reset = () => {
+      count.value = 0
+    }
 
-    return { count, increment, decrement }
+    return { count, increment, decrement, reset }
   }
 })
 </script>

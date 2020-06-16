@@ -6,31 +6,36 @@
     button.bg-red-500.rounded-l.text-white.py-1.px-3.my-1.text-lg(@click="increment") +
     button.bg-blue-500.text-white.py-1.px-3.my-1.text-lg(@click="decrement") -
     button.bg-yellow-500.rounded-r.text-white.py-1.px-3.my-1.text-lg(@click="reset") 0
-    span.text-gray-500.cursor-pointer.px-4(@click="onClose") x
+    span.text-gray-500.cursor-pointer.px-4(@click="$emit('close')") x
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-
-type Props = {
-  title: string
-}
+import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({
-  props: { title: String },
-  setup() {
-    const count = ref(0)
+  name: 'Counter',
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    count: {
+      type: Number,
+      required: true
+    }
+  },
+  setup(props, context) {
     const increment = () => {
-      count.value++
+      context.emit('increment')
     }
     const decrement = () => {
-      if (count.value >= 1) count.value--
+      context.emit('decrement')
     }
     const reset = () => {
-      count.value = 0
+      context.emit('reset')
     }
 
-    return { count, increment, decrement, reset }
+    return { increment, decrement, reset }
   }
 })
 </script>

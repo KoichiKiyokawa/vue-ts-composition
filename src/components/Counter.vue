@@ -1,6 +1,6 @@
 <template lang="pug">
-.max-w-sm.rounded.border-solide.shadow-lg.m-auto.flex.relative.items-center
-  span.px-4 {{title}}
+.max-w-sm.rounded.border-solide.bg-gray-100.shadow-lg.m-auto.flex.relative.items-center
+  span.text-gray-600.px-4 {{title}}
   span.text-lg.font-bold.px-4.absolute.centerize {{count}}
   .ml-auto
     button.bg-blue-500.rounded.text-white.py-1.px-3.m-1.text-lg(@click="increment") +

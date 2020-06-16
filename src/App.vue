@@ -35,7 +35,7 @@ export default defineComponent({
       counters[index].count++
     }
     const decrement = (index: number) => {
-      if (counters[index].count >= 0) counters[index].count--
+      if (counters[index].count >= 1) counters[index].count--
     }
     const reset = (index: number) => {
       counters[index].count = 0

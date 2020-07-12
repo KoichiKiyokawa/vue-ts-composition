@@ -1,8 +1,7 @@
 <template lang="pug">
 #app.text-center
   h1.text-6xl Multiple Counter
-  // TODO: .syncで配列変更できない。。。
-  Counter.mb-2(v-for="(counter, i) in counters" :key="i" v-bind="counter")
+  Counter.mb-2(v-for="(counter, i) in counters" :key="i" v-bind="counter" @close="close(i)")
   .max-w-sm.m-auto.text-center.bg-green-400.rounded.text-white.cursor-pointer(@click="addCounter") new counter
   span sum of count: {{sumOfCount}}
 </template>

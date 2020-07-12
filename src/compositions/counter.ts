@@ -1,4 +1,4 @@
-import { ref, reactive, computed, toRefs } from 'vue'
+import { reactive, computed } from 'vue'
 
 const useCounter = () => {
   const counterState = reactive({

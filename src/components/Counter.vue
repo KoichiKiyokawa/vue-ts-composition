@@ -1,6 +1,6 @@
 <template lang="pug">
 .max-w-sm.rounded.border-solide.bg-gray-100.shadow-lg.m-auto.flex.relative.items-center
-  input.text-gray-600.mx-4.px-1.w-32(:value="counterState.title")
+  input.text-gray-600.mx-4.px-1.w-32(v-model="counterState.title")
   span.text-lg.font-bold.px-4.absolute.centerize {{counterState.count}}
   .ml-auto
     button.btn.bg-red-500.rounded-l(tabindex="-1" @click="increment") +

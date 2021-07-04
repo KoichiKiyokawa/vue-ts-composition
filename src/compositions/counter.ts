@@ -25,11 +25,12 @@ export const useCounters = () => {
   const close = (index: number) => {
     counters.splice(index, 1)
   }
+  const titleListString = computed<string>(() =>
+    counters.flatMap(counter => counter.counterState.title || []).join(', ')
+  )
   const sumOfCount = computed<number>(() =>
-    counters.length === 0
-      ? 0
-      : counters.reduce((prev, { counterState: { count } }) => prev + count, 0)
+    counters.reduce((prev, { counterState: { count } }) => prev + count, 0)
   )
 
-  return { counters, addCounter, close, sumOfCount }
+  return { counters, addCounter, close, titleListString, sumOfCount }
 }
